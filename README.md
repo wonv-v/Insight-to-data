@@ -44,45 +44,51 @@ Customer feedback is a vital resource in modern product development. However, as
 ```python
 # Enforcing strict categorization
 category: Literal["SHIPPING", "PRODUCT_QUALITY", "PRICING", "UX_UI"];
-Challenge B: Modeling Complex Data Relationships (1:N)
-	•	Problem: A single review often contains multiple sentiments. Storing one sentiment score per review leads to data loss.
-	•	Solution: Designed a One-to-Many (1:N) database relationship. Python logic extracts a list of insight objects from a single text block, populating a child table (review_analytics) linked to the parent (raw_reviews).
 
-Challenge C: Bridging the Gap for Non-Technical Users
-	•	Problem: SQL is a barrier for Product Managers and Marketers.
-	•	Solution: Integrated a vector-augmented Text-to-SQL engine. Natural language questions are translated into executable SQL queries.
-	•	Result: Democratized data access, reducing ad-hoc requests to the engineering team by 80%.
+### Challenge B: Modeling Complex Data Relationships (1:N)
+- **Problem:** A single review often contains multiple sentiments. Storing one sentiment score per review leads to data loss.  
+- **Solution:** Designed a One-to-Many (1:N) database relationship. Python logic extracts a list of insight objects from a single text block, populating a child table (`review_analytics`) linked to the parent (`raw_reviews`).
 
-⸻
+---
 
-5. Database Schema Design
-	•	raw_reviews (Source of Truth)
-	•	Stores immutable user content
-	•	Columns: review_id (PK), user_text, timestamp
-	•	review_insights (Structured Analytics)
-	•	Stores AI-parsed variables
-	•	Columns:
-	•	insight_id (PK)
-	•	review_id (FK) → links to parent review
-	•	category_tag (ENUM) → standardized topic
-	•	sentiment_score (INT) → 1-10 granularity
+### Challenge C: Bridging the Gap for Non-Technical Users
+- **Problem:** SQL is a barrier for Product Managers and Marketers.  
+- **Solution:** Integrated a vector-augmented Text-to-SQL engine. Natural language questions are translated into executable SQL queries.  
+- **Result:** Democratized data access, reducing ad-hoc requests to the engineering team by 80%.
 
-⸻
+---
 
-6. Business Impact
-	•	Operational Efficiency: Automated classification of 10,000+ monthly reviews, saving ~40 hours of manual labor per week
-	•	Granular Insights: Successfully decoupled “Service” issues from “Product” issues → Engineering team focused on product defects, Operations handled shipping complaints
-	•	Real-Time Agility: Enabled instant trend detection (e.g., spike in “Defective Button” reports within hours of a new release)
+## 5. Database Schema Design
 
-⸻
+- **raw_reviews (Source of Truth)**  
+  - Stores immutable user content  
+  - Columns: `review_id` (PK), `user_text`, `timestamp`  
 
-7. Future Improvements
-	•	Hybrid Search: Implement vector embeddings (RAG) for semantic search alongside SQL queries
-	•	Example: “Find reviews that sound frustrated about the battery”
-	•	Cost Optimization: Fine-tune a smaller model (Llama 3 or GPT-4o-mini) to reduce API costs for high-volume batch processing
+- **review_insights (Structured Analytics)**  
+  - Stores AI-parsed variables  
+  - Columns:  
+    - `insight_id` (PK)  
+    - `review_id` (FK) → links to parent review  
+    - `category_tag` (ENUM) → standardized topic  
+    - `sentiment_score` (INT) → 1-10 granularity  
 
-⸻
+---
 
-Disclaimer
+## 6. Business Impact
 
-This portfolio is not a technical implementation document. It is a visualization of system thinking created by a student studying Information Systems, reflecting structured analysis and conceptual design through written exposition.
+- **Operational Efficiency:** Automated classification of 10,000+ monthly reviews, saving ~40 hours of manual labor per week  
+- **Granular Insights:** Successfully decoupled "Service" issues from "Product" issues → Engineering team focused on product defects, Operations handled shipping complaints  
+- **Real-Time Agility:** Enabled instant trend detection (e.g., spike in "Defective Button" reports within hours of a new release)  
+
+---
+
+## 7. Future Improvements
+
+- **Hybrid Search:** Implement vector embeddings (RAG) for semantic search alongside SQL queries  
+  - Example: "Find reviews that sound frustrated about the battery"  
+- **Cost Optimization:** Fine-tune a smaller model (Llama 3 or GPT-4o-mini) to reduce API costs for high-volume batch processing  
+
+---
+
+## Disclaimer
+This portfolio is **not a technical implementation document**. It is a **visualization of system thinking** created by a student studying Information Systems, reflecting structured analysis and conceptual design through written exposition.

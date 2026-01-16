@@ -1,7 +1,3 @@
-# Insight-to-data
-A system design study on building an AI-driven ETL pipeline that transforms unstructured customer feedback into structured SQL data using LLMs as semantic logic engines.
-# Project: Scalable Customer Insight Pipeline via AI-Driven Data Structuring
-
 ## 1. Executive Summary
 *"Transforming Unstructured Voices into Structured Intelligence."*
 

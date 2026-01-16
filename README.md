@@ -92,3 +92,5 @@ category: Literal["SHIPPING", "PRODUCT_QUALITY", "PRICING", "UX_UI"];
 
 ## Disclaimer
 This portfolio is **not a technical implementation document**. It is a **visualization of system thinking** created by a student studying Information Systems, reflecting structured analysis and conceptual design through written exposition.
+
+

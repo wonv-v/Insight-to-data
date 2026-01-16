@@ -43,7 +43,7 @@ Customer feedback is a vital resource in modern product development. However, as
 
 ```python
 # Enforcing strict categorization
-category: Literal["SHIPPING", "PRODUCT_QUALITY", "PRICING", "UX_UI"];
+category: Literal["SHIPPING", "PRODUCT_QUALITY", "PRICING", "UX_UI"]```
 
 ### Challenge B: Modeling Complex Data Relationships (1:N)
 - **Problem:** A single review often contains multiple sentiments. Storing one sentiment score per review leads to data loss.  

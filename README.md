@@ -50,21 +50,91 @@ Challenge C: Bridging the Gap for Non-Technical Users
 	•	Solution: Integrated a vector-augmented Text-to-SQL engine. Natural language questions are translated into executable SQL queries.
 	•	Result: Democratized data access, reducing ad-hoc requests to the engineering team by 80%.
 
-5. Advanced Strategy: Metadata-Augmented Hybrid Input
-To further bridge the gap between human intent and machine logic, I propose a Hybrid Feedback Architecture that integrates structured metadata with natural language processing.
-The Concept: "Guided Intelligence"
-By providing users with predefined Like/Dislike tags (e.g., Shipping, UI/UX, Pricing) alongside an open-ended text field ("I would like to hear about it"), the system creates a "Human-in-the-Loop" labeling process at the point of entry.
+- Advanced Strategy: Metadata-Augmented Hybrid Input
+
+Objective
+
+To further bridge the gap between human intent and machine logic, this project proposes a Hybrid Feedback Architecture that combines structured metadata with natural language input.
+
+⸻
+
+Core Concept: Guided Intelligence
+
+Instead of relying solely on free-form text, users provide feedback through:
+	•	Predefined Like/Dislike tags
+(e.g., Shipping, UI/UX, Pricing)
+	•	An open-ended text field
+(“I would like to hear about it”)
+
+This design introduces a Human-in-the-Loop labeling process at the point of entry, allowing users to explicitly declare intent before the AI performs semantic analysis.
+
+⸻
+
 Technical Synergy & Benefits
-• Anchored Inference (Improving Precision):
-Instead of the LLM guessing the topic from scratch, the user-selected tags serve as a "Ground Truth" anchor. This allows the AI to focus solely on extracting the nuance and sentiment of the feedback, significantly reducing semantic ambiguity and misclassification.
-• Conflict Detection & Data Integrity:
-The system can cross-verify the selected tag against the written text. For example, if a user selects a "Like" tag for "Customer Service" but writes "The staff was rude," the system flags a Data Conflict. The LLM then acts as an arbiter to determine if the input is sarcastic or a user error, ensuring high data reliability.
-• HCI-Driven Efficiency (Token & Cost Optimization):
-By using tags as metadata, the system can utilize shorter, more targeted prompts. This reduces token consumption (API costs) and increases processing speed, as the model no longer needs to perform broad-spectrum classification for every review.
+
+1. Anchored Inference (Improved Precision)
+	•	Traditional LLM pipelines must infer the topic from scratch.
+	•	In this system, user-selected tags act as a Ground Truth anchor.
+	•	The LLM’s role is narrowed to:
+	•	Extracting nuance
+	•	Interpreting sentiment
+	•	Identifying sub-issues
+
+Result:
+Significantly reduced semantic ambiguity and lower misclassification rates.
+
+⸻
+
+2. Conflict Detection & Data Integrity
+The system cross-verifies user-selected tags against the written feedback.
+
+Example:
+	•	Tag: Like → Customer Service
+	•	Text: “The staff was rude.”
+
+This mismatch triggers a Data Conflict flag.
+	•	The LLM acts as an arbiter, evaluating whether the input reflects:
+	•	Sarcasm
+	•	User misselection
+	•	Mixed or contradictory sentiment
+
+Result:
+Higher data reliability and protection against silent labeling errors.
+
+⸻
+
+3. HCI-Driven Efficiency (Token & Cost Optimization)
+	•	Tags function as explicit metadata, reducing prompt ambiguity.
+	•	The LLM no longer performs broad-spectrum topic classification.
+	•	Prompts become:
+	•	Shorter
+	•	More targeted
+	•	Faster to process
+
+Result:
+Lower token usage (reduced API costs) and improved system throughput.
+
+⸻
+
 Architectural Impact
-• Primary Category: Defined by User Tags (Stored directly in SQL category_tag).
-• Granular Insight: Extracted by LLM (Stored in SQL insight_detail or sub_category).
-• Result: A dual-layered data structure that offers both high-level statistical clarity and deep qualitative intelligence.
+
+Data Responsibility Split
+	•	Primary Category
+	•	Defined directly by user tags
+	•	Stored in SQL: category_tag
+	•	Granular Insight
+	•	Extracted by the LLM
+	•	Stored in SQL: insight_detail or sub_category
+
+⸻
+
+Final Outcome
+
+This approach produces a dual-layered data structure that delivers:
+	•	High-level statistical clarity
+(Reliable aggregation, dashboards, trend analysis)
+	•	Deep qualitative intelligence
+(Context, nuance, and actionable insight)
 
 
 5. Database Schema Design

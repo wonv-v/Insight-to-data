@@ -163,4 +163,4 @@ Disclaimer
 
 This portfolio is not a technical implementation document. It is a visualization of system thinking created by a student studying Information Systems, reflecting structured analysis and conceptual design through written exposition.
 
-mvp-https://app.base44.com/apps/696c626e73db368ee6ed9ee4/editor/preview/Dashboard
+mvp- https://insight-stream-e6ed9ee4.base44.app
